@@ -52,8 +52,8 @@ Each step runs on its own before the next one starts.
 | # | Step | Status |
 |---|---|---|
 | 0 | Skeleton: Spring Boot app, PostgreSQL, Flyway, Kafka in Docker, health check | Done |
-| K0 | Kafka by hand with the CLI: create `auction-events` with 3 partitions, send keyed messages, two consumers in one group, look at offsets and lag, replay by resetting offsets | Next |
-| 1 | Auctions and bids: `POST /auctions`, `POST /auctions/{id}/bids`, `GET /auctions/{id}` | |
+| K0 | Kafka by hand with the CLI: create `auction-events` with 3 partitions, send keyed messages, two consumers in one group, look at offsets and lag, replay by resetting offsets | Done |
+| 1 | Auctions and bids: `POST /auctions`, `POST /auctions/{id}/bids`, `GET /auctions/{id}` | Next |
 | 2 | Producer: publish `BidPlaced` with `KafkaTemplate`, keyed by auction ID, `acks=all` | |
 | 3 | Consumer: `notifier` group with `@KafkaListener`, manual acknowledgement after processing | |
 | 4 | Second group: `auction-closer` reads the same events and closes expired auctions, publishing `AuctionClosed` | |
